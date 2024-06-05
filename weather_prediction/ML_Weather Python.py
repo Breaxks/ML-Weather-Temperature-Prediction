@@ -1,5 +1,6 @@
 # Import necessary libraries
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.linear_model import LinearRegression
@@ -23,8 +24,13 @@ target = data['Temperature (C)']  # Use the correct column name
 # Drop non-numeric columns from features
 features = features.drop(columns=['Formatted Date', 'Summary', 'Daily Summary'])
 
-# Handle missing values by filling them with the most frequent value
-features['Precip Type'].fillna(features['Precip Type'].mode()[0], inplace=True)
+# Handle 'Snow' as a new category
+if 'Snow' in features['Precip Type'].unique():
+    # 'Snow' is already present, so no need to do anything
+    print("Snow is already present as a category.")
+else:
+    # 'Snow' is not present, so add it as a new category
+    features['Precip Type'].replace(np.nan, 'Snow', inplace=True)
 
 # Encode categorical variables
 label_encoder = LabelEncoder()

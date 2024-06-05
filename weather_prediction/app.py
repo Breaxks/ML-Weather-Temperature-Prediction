@@ -32,7 +32,7 @@ def predict():
     # Make the prediction
     prediction = model.predict(features_scaled)
 
-    return f'Predicted Temperature: {prediction[0]:.2f} °C'
+    return render_template('result.html', prediction=prediction[0])
 
 if __name__ == '__main__':
     app.run(debug=True)

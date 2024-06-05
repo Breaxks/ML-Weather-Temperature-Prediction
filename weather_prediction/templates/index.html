@@ -18,7 +18,7 @@
         }
         .container {
             background-color: #fff;
-            padding: 40px 20px 20px 20px; /* Added extra padding at the top */
+            padding: 40px 20px 20px 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             max-width: 500px;
@@ -74,31 +74,33 @@
         <h1>Weather Temperature Prediction</h1>
         <form action="/predict" method="post">
             <label for="precip_type">Precipitation Type:</label>
-            <select id="precip_type" name="precip_type">
+            <select id="precip_type" name="precip_type" required>
+                <option value="">Select</option>
                 <option value="0">None</option>
                 <option value="1">Rain</option>
-            </select>
+                <option value="2">Snow</option>
+            </select>            
 
             <label for="apparent_temperature">Apparent Temperature (C):</label>
-            <input type="text" id="apparent_temperature" name="apparent_temperature">
+            <input type="text" id="apparent_temperature" name="apparent_temperature" required>
 
             <label for="humidity">Humidity:</label>
-            <input type="text" id="humidity" name="humidity">
+            <input type="text" id="humidity" name="humidity" required>
 
             <label for="wind_speed">Wind Speed (km/h):</label>
-            <input type="text" id="wind_speed" name="wind_speed">
+            <input type="text" id="wind_speed" name="wind_speed" required>
 
             <label for="wind_bearing">Wind Bearing (degrees):</label>
-            <input type="text" id="wind_bearing" name="wind_bearing">
+            <input type="text" id="wind_bearing" name="wind_bearing" required>
 
             <label for="visibility">Visibility (km):</label>
-            <input type="text" id="visibility" name="visibility">
+            <input type="text" id="visibility" name="visibility" required>
 
             <label for="loud_cover">Loud Cover:</label>
-            <input type="text" id="loud_cover" name="loud_cover">
+            <input type="text" id="loud_cover" name="loud_cover" required>
 
             <label for="pressure">Pressure (millibars):</label>
-            <input type="text" id="pressure" name="pressure">
+            <input type="text" id="pressure" name="pressure" required>
 
             <button type="submit">Predict Temperature</button>
         </form>
